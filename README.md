@@ -37,7 +37,7 @@ When comparing the greyscale conversions of three images using both the NTSC and
 + **k_means_quantization(image, n_clusters)**: Applies K-means clustering to reduce the number of colors in the image to n_clusters. It reshapes the image into a 2D array where each row represents a pixel, then uses K-means clustering to find n_clusters number of clusters in the color space. Each pixel's color is replaced with the closest cluster center's color. The function returns the image reconstructed with the new quantized colors.
 + **quantization_driver(image_path, n_buckets_list)**: The main driver function for performing and displaying color quantization. It loads an original image from image_path, applies both uniform quantization and K-means quantization with the number of buckets specified in n_buckets_list, displays the original and quantized images, and saves the quantized images using the aforementioned naming convention. The function does not return a value but shows the results and saves the quantized images.
 
-# Hue, Saturation, Brightness, Lightness
+# 3. Hue, Saturation, Brightness, Lightness
 + The resulting images with both positive and negative alterations are located in the "Hue, Saturation, Brightness, Lightness" folder.
 ### Instructions
 + The script name _Hue_Saturation_Brightness_Lightness__Elshan Naghizade.py_
@@ -47,7 +47,11 @@ When comparing the greyscale conversions of three images using both the NTSC and
 + It will display the original image and the resulting images, consequently saving them in the same folder that contains the script under the following naming convention:
 ***name of the file + the changed parameter (for instance, hue) + the change value + increase/decrease***
 ### Code Overview
-
++ adjust_hsv(image, parameter, change, direction): This function adjusts the hue, saturation, or brightness (value) of an image based on the specified parameter (either 'hue', 'saturation', or 'brightness'), the change in the parameter's value, and the direction of the change ('increase' or 'decrease'). It modifies the image in the HSV color space and returns the adjusted image in RGB format.
++ adjust_lightness(image, change, direction): Adjusts the lightness of an image by manipulating its HSL values. The change specifies how much to adjust the lightness, and direction determines whether to increase or decrease it. This function works by converting RGB to HSL, adjusting the lightness, then converting back to RGB, and returning the adjusted image.
++ HSBL_driver(image_path, adjustments): The driver function for applying adjustments to an image based on a list of adjustments. Each adjustment in the list is a tuple containing the parameter to adjust (hue, saturation, brightness, or lightness), the amount of change, and the direction ('increase' or 'decrease'). The function opens the image from image_path, applies all specified adjustments, displays the original and adjusted images side by side, and saves the adjusted images using the aforementioned naming convention that includes the adjustment details.
+# 4. CIEDE Closeness
++
 
 
 
