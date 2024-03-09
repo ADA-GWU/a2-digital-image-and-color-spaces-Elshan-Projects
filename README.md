@@ -42,21 +42,27 @@ When comparing the greyscale conversions of three images using both the NTSC and
 ### Instructions
 + The script name _Hue_Saturation_Brightness_Lightness__Elshan Naghizade.py_
 + Dependencies: pillow matplotlib numpy (Use __pip install _package name___ to install)
-+ Driver Function: HSBL_driver("image_1.jpg", adjustments)
++ Driver Function: ***HSBL_driver("image_1.jpg", adjustments)***
 + To use the HSBL_driver function, you should pass two parameters: the path to your image file and a list of adjustments you want to apply. The structure of the adjustments list consists of tuples, where each tuple contains three elements: the parameter name (as a string) to be adjusted ("hue", "saturation", "brightness", or "lightness"), the value of the adjustment (as a number), and the direction of the adjustment (either "increase" or "decrease" as a string). This list allows you to specify multiple adjustments in sequence, enabling complex color transformations on the image. Since Pillow automatically crops the ranges, the user doesn't have to consider the out-of-range problem.
 + It will display the original image and the resulting images, consequently saving them in the same folder that contains the script under the following naming convention:
 ***name of the file + the changed parameter (for instance, hue) + the change value + increase/decrease***
 ### Code Overview
-+ adjust_hsv(image, parameter, change, direction): This function adjusts the hue, saturation, or brightness (value) of an image based on the specified parameter (either 'hue', 'saturation', or 'brightness'), the change in the parameter's value, and the direction of the change ('increase' or 'decrease'). It modifies the image in the HSV color space and returns the adjusted image in RGB format.
-+ adjust_lightness(image, change, direction): Adjusts the lightness of an image by manipulating its HSL values. The change specifies how much to adjust the lightness, and direction determines whether to increase or decrease it. This function works by converting RGB to HSL, adjusting the lightness, then converting back to RGB, and returning the adjusted image.
-+ HSBL_driver(image_path, adjustments): The driver function for applying adjustments to an image based on a list of adjustments. Each adjustment in the list is a tuple containing the parameter to adjust (hue, saturation, brightness, or lightness), the amount of change, and the direction ('increase' or 'decrease'). The function opens the image from image_path, applies all specified adjustments, displays the original and adjusted images side by side, and saves the adjusted images using the aforementioned naming convention that includes the adjustment details.
++ **adjust_hsv(image, parameter, change, direction)**: This function adjusts the hue, saturation, or brightness (value) of an image based on the specified parameter (either 'hue', 'saturation', or 'brightness'), the change in the parameter's value, and the direction of the change ('increase' or 'decrease'). It modifies the image in the HSV color space and returns the adjusted image in RGB format.
++ **adjust_lightness(image, change, direction)**: Adjusts the lightness of an image by manipulating its HSL values. The change specifies how much to adjust the lightness, and direction determines whether to increase or decrease it. This function works by converting RGB to HSL, adjusting the lightness, then converting back to RGB, and returning the adjusted image.
++ **HSBL_driver(image_path, adjustments)**: The driver function for applying adjustments to an image based on a list of adjustments. Each adjustment in the list is a tuple containing the parameter to adjust (hue, saturation, brightness, or lightness), the amount of change, and the direction ('increase' or 'decrease'). The function opens the image from image_path, applies all specified adjustments, displays the original and adjusted images side by side, and saves the adjusted images using the aforementioned naming convention that includes the adjustment details.
 # 4. CIEDE Closeness
 + The resulting images are located in the "CIEDE Closeness Images" folder which has separate subfolders for each test image. Those subfolders contain sample runs of the program, where the clicked pixel is marked with a red dot and the similarly colored areas are highlighted as green. The names of those files reflect the x/y position of the clicked pixel and the threshold value for the CIEDE algorithm.
 ### Instructions
 + The script name: _CIEDE_Algorithm_Elshan_Naghizade.py_
 + Dependencies: opencv-python numpy (Use __pip install _package name___ to install)
-+ Driver Function: closeness_driver(image_path) 
-+ Run the script and then call the driver function with the image path as its parameter. The "threshold=10" default parameter is optional but can be set as the second parameter of the driver function.
-+ 
++ Driver Function: ***closeness_driver(image_path)***
++ Set the ***image_path*** variable in the script. (setting a threshold is optional)
++ Run the script. (The "threshold=10" default parameter is optional but can be set as the second parameter of the driver function.)
++ Once application starts the original image will be displayed. Use the crosshair to select a pixel position. Another window will pop up marking the chosen pixel positiion with a red dot and highlighting the areas with close (similar) colors with green on the image. The resulting image will be saved under the following naming convention:
+  ***name of the file + x/y position of the chosen pixel + threshold value***
++ To exit the app close both windows (the original image and the resulting image)
+### Code Overview
++ **click_event(event, x, y, flags, params)**: This function acts as an event handler for mouse clicks within an OpenCV window. On a left button click (cv2.EVENT_LBUTTONDOWN), it computes the color difference (Delta E) between the clicked pixel and all other pixels in the image, highlights similar colors based on a threshold, marks the clicked position with a circle, saves the highlighted image with a specific naming convention, and then displays this result. The params include the source image, its LAB color space representation, the similarity threshold, and the image path.
++ **closeness_driver(image_path, threshold=10)**: This is the driver function for the color similarity demonstration. It loads an image from image_path, converts it to the LAB color space for more accurate color difference computation, displays the original image in an OpenCV window, and sets up a mouse click callback to click_event with the necessary parameters (src, lab_image, threshold, image_path). It then waits for a user interaction and closes all OpenCV windows upon completion.
 
 
