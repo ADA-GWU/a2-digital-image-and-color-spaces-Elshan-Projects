@@ -52,7 +52,11 @@ When comparing the greyscale conversions of three images using both the NTSC and
 + HSBL_driver(image_path, adjustments): The driver function for applying adjustments to an image based on a list of adjustments. Each adjustment in the list is a tuple containing the parameter to adjust (hue, saturation, brightness, or lightness), the amount of change, and the direction ('increase' or 'decrease'). The function opens the image from image_path, applies all specified adjustments, displays the original and adjusted images side by side, and saves the adjusted images using the aforementioned naming convention that includes the adjustment details.
 # 4. CIEDE Closeness
 + The resulting images are located in the "CIEDE Closeness Images" folder which has separate subfolders for each test image. Those subfolders contain sample runs of the program, where the clicked pixel is marked with a red dot and the similarly colored areas are highlighted as green. The names of those files reflect the x/y position of the clicked pixel and the threshold value for the CIEDE algorithm.
-
-
+### Instructions
++ The script name: _CIEDE_Algorithm_Elshan_Naghizade.py_
++ Dependencies: opencv-python numpy (Use __pip install _package name___ to install)
++ Driver Function: closeness_driver(image_path) 
++ Run the script and then call the driver function with the image path as its parameter. The "threshold=10" default parameter is optional but can be set as the second parameter of the driver function.
++ 
 
 
