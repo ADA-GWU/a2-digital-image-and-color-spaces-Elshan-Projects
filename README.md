@@ -59,7 +59,7 @@ When comparing the greyscale conversions of three images using both the NTSC and
 + Set the ***image_path*** variable in the script. (setting a threshold is optional)
 + Run the script. (The "threshold=10" default parameter is optional but can be set as the second parameter of the driver function.)
 + Once application starts the original image will be displayed. Use the crosshair to select a pixel position. Another window will pop up marking the chosen pixel positiion with a red dot and highlighting the areas with close (similar) colors with green on the image. The resulting image will be saved under the following naming convention:
-  ***name of the file + x/y position of the chosen pixel + threshold value*** in the same folder that contains the script.
++ ***name of the file + x/y position of the chosen pixel + threshold value*** in the same folder that contains the script.
 + To exit the app close both windows (the original image and the resulting image)
 ### Code Overview
 + **click_event(event, x, y, flags, params)**: This function acts as an event handler for mouse clicks within an OpenCV window. On a left button click (cv2.EVENT_LBUTTONDOWN), it computes the color difference (Delta E) between the clicked pixel and all other pixels in the image, highlights similar colors based on a threshold, marks the clicked position with a circle, saves the highlighted image with a specific naming convention, and then displays this result. The params include the source image, its LAB color space representation, the similarity threshold, and the image path.
