@@ -24,7 +24,7 @@ When comparing the greyscale conversions of three images using both the NTSC and
 + **grey_scale_driver(image_path)**: Acts as the driver function for the entire script. It opens the specified image file, performs both greyscale conversions, calculates PSNR and SSIM for each conversion method, prints these metrics, and invokes save_and_show_images to save and display the results.
 
 # 2. Color Quantization
-+ The quantizations of the images are stored in the "Color Quantization Images" folder with a separate subfolder for each test image. Consequently every test image's subfolder contains 2 subfolders (Uniform and K-means Quantization). Those subfolders contain the quantizations with the following bucket sizes (2,4,8,12,16,32,64,128) for their respective quantization algorithm
++ The quantizations of the images are located in the "Color Quantization Images" folder with a separate subfolder for each test image. Consequently every test image's subfolder contains 2 subfolders (Uniform and K-means Quantization). Those subfolders contain the quantizations with the following bucket sizes (2,4,8,12,16,32,64,128) for their respective quantization algorithm
 ### Instructions
 + The script name _Color_Quantization_Elshan_Naghizade.py_
 + Dependencies: numpy pillow matplotlib scikit-learn (Use __pip install _package name___ to install)
@@ -37,6 +37,16 @@ When comparing the greyscale conversions of three images using both the NTSC and
 + **k_means_quantization(image, n_clusters)**: Applies K-means clustering to reduce the number of colors in the image to n_clusters. It reshapes the image into a 2D array where each row represents a pixel, then uses K-means clustering to find n_clusters number of clusters in the color space. Each pixel's color is replaced with the closest cluster center's color. The function returns the image reconstructed with the new quantized colors.
 + **quantization_driver(image_path, n_buckets_list)**: The main driver function for performing and displaying color quantization. It loads an original image from image_path, applies both uniform quantization and K-means quantization with the number of buckets specified in n_buckets_list, displays the original and quantized images, and saves the quantized images using the aforementioned naming convention. The function does not return a value but shows the results and saves the quantized images.
 
+# Hue, Saturation, Brightness, Lightness
++ The resulting images with both positive and negative alterations are located in the "Hue, Saturation, Brightness, Lightness" folder.
+### Instructions
++ The script name _Hue_Saturation_Brightness_Lightness__Elshan Naghizade.py_
++ Dependencies: pillow matplotlib numpy (Use __pip install _package name___ to install)
++ Driver Function: HSBL_driver("image_1.jpg", adjustments)
++ To use the HSBL_driver function, you should pass two parameters: the path to your image file and a list of adjustments you want to apply. The structure of the adjustments list consists of tuples, where each tuple contains three elements: the parameter name (as a string) to be adjusted ("hue", "saturation", "brightness", or "lightness"), the value of the adjustment (as a number), and the direction of the adjustment (either "increase" or "decrease" as a string). This list allows you to specify multiple adjustments in sequence, enabling complex color transformations on the image. Since Pillow automatically crops the ranges, the user doesn't have to consider the out-of-range problem.
++ It will display the original image and the resulting images, consequently saving them in the same folder that contains the script under the following naming convention:
+***name of the file + the changed parameter (for instance, hue) + the change value + increase/decrease***
+### Code Overview
 
 
 
