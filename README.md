@@ -38,7 +38,7 @@ When comparing the greyscale conversions of three images using both the NTSC and
 + **quantization_driver(image_path, n_buckets_list)**: The main driver function for performing and displaying color quantization. It loads an original image from image_path, applies both uniform quantization and K-means quantization with the number of buckets specified in n_buckets_list, displays the original and quantized images, and saves the quantized images using the aforementioned naming convention. The function does not return a value but shows the results and saves the quantized images.
 
 # 3. Hue, Saturation, Brightness, Lightness
-+ The resulting images with both positive and negative alterations are located in the "Hue, Saturation, Brightness, Lightness" folder.
++ The resulting images with both positive and negative alterations are located in the "Hue, Saturation, Brightness, Lightness" folder. The name of each file reflects the changed paramter and the value of that change.
 ### Instructions
 + The script name _Hue_Saturation_Brightness_Lightness__Elshan Naghizade.py_
 + Dependencies: pillow matplotlib numpy (Use __pip install _package name___ to install)
