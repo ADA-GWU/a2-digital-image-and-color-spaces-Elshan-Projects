@@ -33,7 +33,9 @@ When comparing the greyscale conversions of three images using both the NTSC and
 + _n_bucket_list_ is a list containing integer values denoting the buckets for which the Uniform and K-Means quantization will be performed
 + The driver function will display the original image along with the resulting images for every bucket number for both algorithms and then save them under the following naming convention: __name of the file + the algorithm + bucket size__
 ### Code Overview
-+
++ uniform_quantization(image, n_buckets): Reduces the number of colors in the image to n_buckets by uniformly quantizing the RGB space. It calculates quantization levels based on the number of buckets, then applies this quantization to the image. The function returns the quantized image.
++ k_means_quantization(image, n_clusters): Applies K-means clustering to reduce the number of colors in the image to n_clusters. It reshapes the image into a 2D array where each row represents a pixel, then uses K-means clustering to find n_clusters number of clusters in the color space. Each pixel's color is replaced with the closest cluster center's color. The function returns the image reconstructed with the new quantized colors.
++ quantization_driver(image_path, n_buckets_list): The main driver function for performing and displaying color quantization. It loads an original image from image_path, applies both uniform quantization and K-means quantization with the number of buckets specified in n_buckets_list, displays the original and quantized images, and saves the quantized images using the aforementioned naming convention. The function does not return a value but shows the results and saves the quantized images.
 
 
 
