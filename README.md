@@ -1,7 +1,7 @@
 _The captured images are stored in the "Original Images" folder (image_1.jpg, image_2.jpg, image_3.jpg)._
 
 # 1. Grey Scale Conversion
-+ The resulting images are located in the "Grey Scale Images" folder which contains a subfolder for each test image.
++ The resulting conversion images are located in the "Grey Scale Images" folder which contains a subfolder for each test image.
 ### Qualitative Analysis
 + The NTSC greyscale conversion showed better outcomes in capturing shadows and semi-shadows for Images 1 and 2, whereas the 1/3 weights conversion method was better at distinguishing between darker color hues under the belly of the dog in Image 1 and around the ears in Image 2.
 + For Image 3, the nearly identical resulting images for both conversion methods are due to the image's uniform lighting and contrasting colors of the carpet.
