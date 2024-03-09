@@ -24,7 +24,16 @@ When comparing the greyscale conversions of three images using both the NTSC and
 + grey_scale_driver(image_path): Acts as the driver function for the entire script. It opens the specified image file, performs both greyscale conversions, calculates PSNR and SSIM for each conversion method, prints these metrics, and invokes save_and_show_images to save and display the results.
 
 # 2. Color Quantization
-
++ The quantizations of the images are stored in the "Color Quantization Images" folder with a separate subfolder for each test image. Consequently every test image's subfolder contains 2 subfolders (Uniform and K-means Quantization). Those subfolders contain the quantizations with the following bucket sizes (2,4,8,12,16,32,64,128) for their respective quantization algorithm
+### Instructions
++ The script name _Color_Quantization_Elshan_Naghizade.py_
++ Dependencies: numpy pillow matplotlib scikit-learn (Use __pip install _package name___ to install)
++ Driver Function: _quantization_driver('image path', n_buckets_list)_
++ Run the script and then call the driver function with the image path and n_buckets_list as its parameters
++ _n_bucket_list_ is a list containing integer values denoting the buckets for which the Uniform and K-Means quantization will be performed
++ The driver function will display the original image along with the resulting images for every bucket number for both algorithms and then save them under the following naming convention: __name of the file + the algorithm + bucket size__
+### Code Overview
++
 
 
 
