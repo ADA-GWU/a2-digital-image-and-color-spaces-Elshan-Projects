@@ -17,4 +17,16 @@ When comparing the greyscale conversions of three images using both the NTSC and
 + Run the script and then call the driver function with the image path as its parameter
 + The driver function will display the original image along with the NTSC and 1/3 conversion results and then save the resulting images in the same folder that contains the script.
 ### Code Overview
-+
++ convert_to_ntsc_greyscale(image): Converts an RGB image to greyscale using NTSC coefficients (0.2989 for Red, 0.5870 for Green, and 0.1140 for Blue), which are intended to reflect the human eye's sensitivity to these colors.
++ convert_to_one_third_greyscale(image): Converts an RGB image to greyscale by averaging the three color channels (Red, Green, Blue) equally, giving each one-third weight.
++ calculate_metrics(original_image, converted_image): Calculates and returns the Peak Signal-to-Noise Ratio (PSNR) and the Structural Similarity Index (SSIM) between the original image and a converted greyscale image. These metrics assess the quality of the conversion in terms of signal accuracy and perceived visual similarity, respectively.
++ save_and_show_images(original_image, ntsc_grey_image, one_third_grey_image, original_path): Saves the greyscale images (converted through both methods) with specific filenames indicating the conversion method. Then, it displays the original image alongside the two greyscale versions in a single figure for visual comparison.
++ grey_scale_driver(image_path): Acts as the driver function for the entire script. It opens the specified image file, performs both greyscale conversions, calculates PSNR and SSIM for each conversion method, prints these metrics, and invokes save_and_show_images to save and display the results.
+
+# 2. Color Quantization
+
+
+
+
+
+
