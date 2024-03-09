@@ -31,5 +31,5 @@ def closeness_driver(image_path, threshold=10):
 
 
 # Provide an image path to the driver function (setting a threshold is optional)
-#image_path = 'image_1.jpg'
-#closeness_driver(image_path)
+image_path = 'image_1.jpg'
+closeness_driver(image_path)
