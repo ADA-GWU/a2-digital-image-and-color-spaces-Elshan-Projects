@@ -51,7 +51,8 @@ When comparing the greyscale conversions of three images using both the NTSC and
 + adjust_lightness(image, change, direction): Adjusts the lightness of an image by manipulating its HSL values. The change specifies how much to adjust the lightness, and direction determines whether to increase or decrease it. This function works by converting RGB to HSL, adjusting the lightness, then converting back to RGB, and returning the adjusted image.
 + HSBL_driver(image_path, adjustments): The driver function for applying adjustments to an image based on a list of adjustments. Each adjustment in the list is a tuple containing the parameter to adjust (hue, saturation, brightness, or lightness), the amount of change, and the direction ('increase' or 'decrease'). The function opens the image from image_path, applies all specified adjustments, displays the original and adjusted images side by side, and saves the adjusted images using the aforementioned naming convention that includes the adjustment details.
 # 4. CIEDE Closeness
-+
++ The resulting images are located in the "CIEDE Closeness Images" folder which has separate subfolders for each test image. Those subfolders contain sample runs of the program, where the clicked pixel is marked with a red dot and the similarly colored areas are highlighted as green. The names of those files reflect the x/y position of the clicked pixel and the threshold value for the CIEDE algorithm.
+
 
 
 
